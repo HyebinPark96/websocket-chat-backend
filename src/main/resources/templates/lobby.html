@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- thymeleaf -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>lobby</title>
+
+  <!-- 부트스트랩 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+  <!-- 폰트 지정 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap">
+
+  <!-- 외부 CSS -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- sockjs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.min.js"></script>
+
+  <!-- STOMP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+
+  <!-- 외부 js -->
+  <script src="/js/script.js"></script>
+
+</head>
+<body>
+
+  <br><br>
+
+  <input type="hidden" id="chatRoom_chatRoomName" th:value="${chatRoomName}">
+
+  <!-- crossroads 가기위한 form -->
+  <form name="writerFrmForSubmitCrossroads" method="POST" action="/crossroads"> <!-- writer 보내주므로 POST -->
+    <input type="hidden" name="writer" id="gettedWriter"> <!-- 단순 writer 넘겨주기 위한 Form -->
+  </form>
+
+  <!-- 작성자 입력 -->
+  <div class="writerPage">
+    <form name="checkWriterFrm" method="POST" action="/crossroads">
+      <h3>writer를 입력하세요.</h3>
+      <input type="text" placeholder="writer 입력 (10자 이내)" class="form-control" name="writer" id="writer"> <!--id="writer"-->
+      <button class="btn btn-dark" id="startBtn" type="button">START</button> <!-- 우선 갖가지 JS 조건들(중복체크) 처리 후에 JS에서 해당 폼 전송하는 로직 -->
+    </form>
+  </div>
+
+</body>
+</html>

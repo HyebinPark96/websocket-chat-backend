@@ -1,0 +1,247 @@
+/* chatRoom */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#body {
+    position: relative;
+}
+
+.connBtnsDiv {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.writerPage {
+    margin: 20px auto;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.checkAttendChat {
+    display: none;
+}
+
+#writer {
+    width: 200px;
+    display: inline;
+}
+
+#startBtn {
+/*    display: none;*/
+}
+
+.exitChatRoom {
+    display: none;
+}
+
+.chatTblTitle {
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+}
+
+#chatTblDiv {
+    width: 300px;
+    height: 500px;
+    margin: 0 auto;
+    overflow-y: scroll;
+}
+
+#chatTbl {
+/*    width: 300px;
+    height: 500px;
+    margin: 0 auto;*/
+    word-wrap:break-word
+    word-break: break-all;
+    table-layout:fixed;
+}
+#voteContentDiv {
+    position: absolute;
+    top: 10%;
+    left: 0%;
+}
+
+#voteCreateDiv {
+      width: 40%;
+      height: 50%;
+
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      display: none;
+
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+
+      background: rgba(150, 255, 255, 0.25);
+      box-shadow: 0 10px 30px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(1.0px);
+      -webkit-backdrop-filter: blur(1.0px);
+
+}
+
+#voteDiv {
+    display: none;
+}
+
+#msgDiv {
+    display: none;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.userTblTitle {
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+}
+
+#userTbl {
+    width: 300px;
+    margin: 0 auto;
+}
+
+
+
+/* admin */
+#adminTitle {
+    text-align: center;
+}
+
+#adminBtnDiv {
+    width: 200px;
+    margin: 0 auto;
+}
+
+#adminChatTbl {
+     width: 300px;
+     margin: 0 auto;
+}
+
+.adminChatTblTd {
+     width: 300px;
+}
+
+#noticeDiv {
+    text-align: center;
+    width: 300px;
+    display: none;
+/*    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);*/
+    margin: 0 auto;
+}
+
+#adminUserTbl {
+    width: 300px;
+    margin: 0 auto;
+    display: none;
+}
+
+.adminUserTblTd {
+    width:300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+/*chatRoomFrm*/
+#addChatRoomFrm {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#addChatRoomTbl {
+    display: -webkit-box;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-box-align:center;
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+#addChatRoomTbody {
+    display:flex;
+}
+
+.addChatRoomTh {
+    width: 120px;
+    text-align: left;
+}
+
+.addChatRoomTh, .addChatRoomTd {
+    display: block;
+}
+
+.arrowImgs {
+    width: 20px;
+    height: 20px;
+}
+
+#addChatRoomBtn {
+    position: absolute;
+    bottom: 7%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+
+
+/* crossroads */
+.relatedRoomBtnsDiv {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#moveAddChatRoomBtn {
+    width: 150px;
+    height: 150px;
+    font-size: 30px;
+}
+
+#moveChatRoomListBtn {
+    width: 150px;
+    height: 150px;
+    font-size: 30px;
+}
+
+
+
+/* chatRoomList */
+#chatRoomListTitle {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#chatRoomListTblDiv {
+    width: 300px;
+    height: 500px;
+    margin: 0 auto;
+    overflow-y: scroll;
+}
+
+
+/* chatRoomList, chatRoomFrm */
+.welcomeWriterMsg {
+    position: absolute;
+    top: 0;
+    right: 0;
+}

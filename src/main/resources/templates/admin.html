@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!-- thymeleaf -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>admin</title>
+
+  <!-- 부트스트랩 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+  <!-- 폰트 지정 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap">
+
+  <!-- 외부 CSS -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- sockjs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.min.js"></script>
+
+  <!-- STOMP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+
+  <!-- 외부 js -->
+  <script src="/js/script.js"></script>
+
+</head>
+<body>
+
+    <h2 id="adminTitle">A D M I N</h2>
+    <br>
+
+    <!-- CONN / DISCONN 버튼 -->
+    <div name="connBtnsFrm" class="form-inline connBtnsFrm">
+      <div class="connBtnsDiv">
+        <button id="adminConnectBtn" class="btn btn-light" type="submit">CONNECT</button> <!--id="connectBtn" -->
+        <button id="disconnectBtn" class="btn btn-light" type="submit" disabled>DISCONNECT</button>
+      </div>
+    </div>
+
+    <div id="adminBtnDiv">
+        <button class="btn btn-dark" id="noticeBtn">공지사항</button>
+        <button class="btn btn-dark" id="ConnManageBtn">연결관리</button> <!--id="adminConnBtn"-->
+    </div>
+
+    <br>
+
+    <!-- 채팅 테이블 -->
+    <div>
+      <table id="adminChatTbl" class="table">
+        <thead>
+        <tr class="trForChatTbl">
+          <th>CHAT</th>
+        </tr>
+        </thead>
+        <tbody id="adminChatTblBody">
+
+        </tbody>
+      </table>
+    </div>
+
+    <div id="noticeDiv">
+      <form id="noticeFrm" name="noticeFrm">
+        <div class="form-group">
+          <div class="input-group clearfix">
+            <input type="text" id="notice" placeholder="공지사항을 입력하세요." class="form-control"/>
+            <button type="submit" class="btn btn-dark" id="sendNoticeBtn">SEND</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <br><br>
+
+    <!-- 유저 목록 -->
+    <div>
+        <table id="adminUserTbl" class="table">
+            <thead>
+            <tr class="tr">
+                <th>USER</th>
+            </tr>
+            </thead>
+            <tbody id="adminUserTblBody">
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+            crossorigin="anonymous"></script>
+</body>
+</html>

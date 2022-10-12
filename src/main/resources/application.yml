@@ -1,0 +1,33 @@
+
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  freemarker:
+    cache: false
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+  mvc:
+    hidden-method:
+      filter:
+        enabled: true
+
+http:
+  encoding:
+    charset: UTF-8
+    enabled: true
+    force: true
+
