@@ -1,7 +1,7 @@
 # 📌 Spring Boot + WebSocket 채팅 프로그램 구현  
 ## 🔨 개발환경
-Java Version 8, Gradle / Spring Boot  
- stomp-websocket & sockjs 
+* Java Version 8, Gradle / Spring Boot  
+* stomp-websocket & sockjs 
 ## ✅ 기능
   * 1:N 통신
   * 일반 채팅 및 귓속말 
