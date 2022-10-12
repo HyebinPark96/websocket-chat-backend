@@ -1,7 +1,7 @@
 # 📌 Spring Boot + WebSocket 채팅 프로그램 구현  
 * Java Version 8, Gradle / Spring Boot 
 * stomp-websocket & sockjs 
-### ✅ 기능
+## ✅ 기능
   * 1:N 통신
   * 일반 채팅 및 귓속말 
     * /w {id} 입력 시 귓속말 모드
@@ -12,7 +12,7 @@
   * 채팅방 생성
     * 채팅방 이름 및 인원 수 제한
   * 방장의 강제 퇴장 권한 및 역임 제도
-### ✅ 피드백
+## ✅ 피드백
   * Thread-safe  
     * 일반적으로 Java의 List나 Map은 파이썬과 달리 Thread-safe 하지 않다.  
   * 무분별한 send()는 비효율적  
