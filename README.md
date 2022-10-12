@@ -3,7 +3,7 @@
 🧾 Java Version 8, Gradle / Spring Boot 
 * 사용한 라이브러리 
   stomp-websocket & sockjs 
-* 기능
+## 기능
   * 1:N 통신
   * 일반 채팅 및 귓속말 
     * /w {id} 입력 시 귓속말 모드
