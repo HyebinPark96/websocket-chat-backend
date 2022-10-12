@@ -14,8 +14,8 @@
     * 채팅방 이름 및 인원 수 제한
   * 방장의 강제 퇴장 권한 및 역임 제도
 ## 피드백
-  ▪ Thread-safe
-    ▫ 일반적으로 Java의 List나 Map은 파이썬과 달리 Thread-safe하지 않다. 
-  ▪ 무분별한 send()는 비효율적
-  ▪ UI
-    ▫ 증가/감소 버튼 가까이 두는 것이 사용자 친화적인 UI
+  ▪ Thread-safe  
+    ▫ 일반적으로 Java의 List나 Map은 파이썬과 달리 Thread-safe하지 않다.  
+  ▪ 무분별한 send()는 비효율적  
+  ▪ UI  
+    ▫ 증가/감소 버튼 가까이 두는 것이 사용자 친화적인 UI  
