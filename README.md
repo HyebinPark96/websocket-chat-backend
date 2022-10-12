@@ -1,5 +1,5 @@
 # spring-websocket-chat
-📌 Spring Boot + WebSocket 채팅 프로그램 구현  
+# 📌 Spring Boot + WebSocket 채팅 프로그램 구현  
 * Java Version 8, Gradle / Spring Boot 
 * stomp-websocket & sockjs 
 ## ✅ 기능
