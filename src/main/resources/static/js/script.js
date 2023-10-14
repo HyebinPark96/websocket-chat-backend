@@ -431,29 +431,29 @@ $(function() {
             return false;
         }
 
-        // 방장이 강퇴할 경우
-        if($("#chatRoom_chatRoomTempWriter").val() == $("#chatRoom_chatRoomMaster").val()) { // 방장일경우
-            console.log('방장입니다.');
-            if($("#msg").val().substring(0,3) == "/e ") { // /e 강퇴할유저 입력시
-                let msg = $("#msg").val();
-                let splitMsgArr = [];
-
-                for(let i=0; i<msg.split(" ").length; i++) {
-                    splitMsgArr.push(msg.split(" ")[i]);
-                    console.log(splitMsgArr[i]);
-                }
-
-                let expulsionTarget = splitMsgArr[1]; // 강퇴될 유저
-
-                sendExpulsionUserFromMaster(expulsionTarget); // 강퇴
-                $("#msg").val("");
-                return false; // 채팅방에 안올려짐
-            }
-        } else {
-            alert("방장이 아니므로 강퇴기능을 사용할 수 없습니다.");
-            $("#msg").val("");
-            return false; // 채팅방에 안올려짐
-        }
+//        // 방장이 강퇴할 경우
+//        if($("#chatRoom_chatRoomTempWriter").val() == $("#chatRoom_chatRoomMaster").val()) { // 방장일경우
+//            console.log('방장입니다.');
+//            if($("#msg").val().substring(0,3) == "/e ") { // /e 강퇴할유저 입력시
+//                let msg = $("#msg").val();
+//                let splitMsgArr = [];
+//
+//                for(let i=0; i<msg.split(" ").length; i++) {
+//                    splitMsgArr.push(msg.split(" ")[i]);
+//                    console.log(splitMsgArr[i]);
+//                }
+//
+//                let expulsionTarget = splitMsgArr[1]; // 강퇴될 유저
+//
+//                sendExpulsionUserFromMaster(expulsionTarget); // 강퇴
+//                $("#msg").val("");
+//                return false; // 채팅방에 안올려짐
+//            }
+//        } else {
+//            alert("방장이 아니므로 강퇴기능을 사용할 수 없습니다.");
+//            $("#msg").val("");
+//            return false; // 채팅방에 안올려짐
+//        }
 
 
         // 귓속말일 경우
