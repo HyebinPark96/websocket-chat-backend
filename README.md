@@ -1,4 +1,8 @@
 # 📌 Spring Boot + WebSocket 채팅 프로그램 구현  
+<p align="center">
+ <img src="https://github.com/HyebinPark96/spring-websocket-chat/assets/96033225/e8d65921-76a7-434e-8676-9f2cf814b1c4" data-canonical-src="https://github.com/HyebinPark96/spring-websocket-chat/assets/96033225/e8d65921-76a7-434e-8676-9f2cf814b1c4" width="200" height="400" />
+</p>
+
 ## 🔨 개발환경
 * Java Version 8, Gradle / Spring Boot  
 * stomp-websocket & sockjs 라이브러리 사용
