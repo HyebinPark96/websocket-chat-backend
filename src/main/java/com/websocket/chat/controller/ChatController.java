@@ -1,7 +1,7 @@
 package com.websocket.chat.controller;
 
 import com.websocket.chat.model.ChatMsg;
-import com.websocket.chat.model.ChatRoom;
+import com.websocket.chat.model.ChatRoomVO;
 import com.websocket.chat.service.ChatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -29,34 +29,34 @@ public class ChatController {
 
     // 유저 채팅 입장시 인사
     @MessageMapping("/enter") // '/app/enter' // 구독자 -> 브로커
-    public /*ChatEnter*/ void enterRoom(ChatMsg chatMsg, ChatRoom chatRoom) throws Exception {
+    public /*ChatEnter*/ void enterRoom(ChatMsg chatMsg, ChatRoomVO chatRoomVO) throws Exception {
         /*return chatService.enterRoom(chatMsg, chatRoom);*/
-        chatService.enterRoom(chatMsg, chatRoom);
+        chatService.enterRoom(chatMsg, chatRoomVO);
     }
     
     // 유저 채팅
     @MessageMapping("/chat")
-    public ChatMsg sendMsg(ChatMsg chatMsg, ChatRoom chatRoom) {
-        return chatService.sendMsg(chatMsg, chatRoom);
+    public ChatMsg sendMsg(ChatMsg chatMsg, ChatRoomVO chatRoomVO) {
+        return chatService.sendMsg(chatMsg, chatRoomVO);
     }
 
     // 유저 참여하기 버튼 클릭
     @MessageMapping("/add")
-    public List<String> addUserList(ChatRoom chatRoom) { // chatRoomName만 받아온 상태
-        return chatService.getConnWriterListForAddWriter(chatRoom); // return 접속중인 writer 리스트
+    public List<String> addUserList(ChatRoomVO chatRoomVO) { // chatRoomName만 받아온 상태
+        return chatService.getConnWriterListForAddUser(chatRoomVO); // return 접속중인 writer 리스트
     }
 
     // 유저 나가기 버튼 클릭
     @MessageMapping("/minus")
-    public List<String> getConnWriterListForMinusWriter(ChatRoom chatRoom) {
-        return chatService.getConnWriterListForMinusWriter(chatRoom);
+    public List<String> getConnWriterListForMinusWriter(ChatRoomVO chatRoomVO) {
+        return chatService.getConnWriterListForMinusWriter(chatRoomVO);
     }
 
     // 방장의 특정유저 강퇴
     @MessageMapping("/expulsion")
-    public List<String> sendExpulsion(ChatRoom chatRoom) {
-        chatService.minusWriterForChatRoom(chatRoom); // 감소
-        return chatService.sendExpulsion(chatRoom);
+    public List<String> sendExpulsion(ChatRoomVO chatRoomVO) {
+        chatService.minusWriterForChatRoom(chatRoomVO); // 감소
+        return chatService.sendExpulsion(chatRoomVO);
     }
 
 
@@ -79,8 +79,8 @@ public class ChatController {
     // 관리자 공지사항
     @MessageMapping("/notice")
     @SendTo("/topic/notice")
-    public ChatRoom sendNotice(ChatRoom chatRoom) {
-        return chatRoom;
+    public ChatRoomVO sendNotice(ChatRoomVO chatRoomVO) {
+        return chatRoomVO;
     }
 
     // 관리자
@@ -106,7 +106,7 @@ public class ChatController {
     // 채팅방 목록
     @PostMapping("/chatRoomList")
     public String getChatRoomList(ChatMsg chatMsg, Model model) {
-        Map<String, ChatRoom> roomMap = chatService.getChatRoomMap();
+        Map<String, ChatRoomVO> roomMap = chatService.getChatRoomMap();
         model.addAttribute("writer", chatMsg.getWriter());
         model.addAttribute("roomMap", roomMap);
         return "chatRoomList";
