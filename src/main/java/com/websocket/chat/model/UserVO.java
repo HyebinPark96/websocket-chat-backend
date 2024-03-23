@@ -13,6 +13,9 @@ import lombok.Setter;
 @Setter
 public class UserVO {
 
+    /** Key **/
+    private Long userId;
+
     /** 사용자명 **/
     private String name;
 

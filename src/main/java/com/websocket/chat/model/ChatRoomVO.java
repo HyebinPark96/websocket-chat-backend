@@ -8,17 +8,20 @@ import java.util.List;
 @Setter
 public class ChatRoomVO {
 
+    /** Key **/
+    private Long roomId;
+
     /** 방장 **/
     private String master;
 
-    /** 접속 시도 사용자 **/
+    /** 입장 또는 퇴장할 사용자 **/
     private String tempUser;
 
     /** 채팅방명 **/
     private String roomName;
 
     /** 정원 **/
-    private int headcount;
+    private Long headcount;
 
     /** 접속중인 사용자 수 **/
     private Long connUserCnt;

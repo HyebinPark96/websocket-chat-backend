@@ -7,8 +7,8 @@ import com.websocket.chat.service.ChatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class ChatRestController {
@@ -25,7 +25,8 @@ public class ChatRestController {
      **/
     @GetMapping("/users/check-username/{name}")
     public ResponseDataVO<Boolean> checkDuplicateName(@PathVariable String name) {
-        ResponseDataVO<Boolean> data = new ResponseDataVO<>(chatService.checkDuplicateName(name));
+        ResponseDataVO<Boolean> data;
+        data = new ResponseDataVO<>(chatService.checkDuplicateName(name));
         return data;
     }
 
@@ -34,15 +35,15 @@ public class ChatRestController {
      * Return Data: Boolean Type의 응답 객체
      **/
     @GetMapping("/roomList")
-    public Map<String, ChatRoomVO> selectRoomList () {
-        Map<String, ChatRoomVO> roomMap = new HashMap<>(chatService.selectRoomList());
-        return roomMap;
+    public List<ChatRoomVO> selectRoomList () {
+        return new ArrayList<>(chatService.selectRoomList());
     }
 
     // 채팅방 생성
     @PostMapping("/chatRoom")
     public ResponseDataVO<Boolean> addChatRoom(@RequestBody ChatRoomVO chatRoomVO) {
-        ResponseDataVO<Boolean> data = new ResponseDataVO<>(chatService.addChatRoom(chatRoomVO));
+        ResponseDataVO<Boolean> data;
+        data = new ResponseDataVO<>(chatService.addChatRoom(chatRoomVO));
         return data; // ChatRoom 커맨드 객체 리턴
     }
 
