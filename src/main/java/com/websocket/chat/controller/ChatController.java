@@ -2,7 +2,6 @@ package com.websocket.chat.controller;
 
 import com.websocket.chat.model.ChatMsg;
 import com.websocket.chat.model.ChatRoomVO;
-import com.websocket.chat.model.UserVO;
 import com.websocket.chat.service.ChatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -10,10 +9,8 @@ import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import java.util.List;
-import java.util.Map;
 
 // STOMP 는 통신규약 중 하나로, 바로 전송하지 않고, 브로커 (커맨드, 헤더, 바디 포함) 끼고 통신하는 것 ??
 // @SendTo 등 스프링에서는 STOMP를 지원하고 있고, 내장 브로커를 제공한다.

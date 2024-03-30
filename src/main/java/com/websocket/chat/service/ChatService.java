@@ -3,13 +3,11 @@ package com.websocket.chat.service;
 import com.websocket.chat.model.ChatEnter;
 import com.websocket.chat.model.ChatMsg;
 import com.websocket.chat.model.ChatRoomVO;
-import com.websocket.chat.model.UserVO;
 import com.websocket.common.exception.CustomException;
 import com.websocket.common.exception.ErrorCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ServerErrorException;
 
 import java.util.*;
 
@@ -20,12 +18,12 @@ public class ChatService {
     private SimpMessagingTemplate simpMessagingTemplate;
 
     /**
-     * 접속중인 사용자 Map (key: 사용자명, value: 세션 아이디)
+     * 사용자 List
      **/
-    private Map<String, Integer> userMap = new HashMap<>();
+    private List<String> userList = new ArrayList<>();
 
     /**
-     * 채팅방 Map (key: 채팅방명, value: 채팅방 정보)
+     * 채팅방 List
      **/
     private List<ChatRoomVO> roomList = new ArrayList<>();
 
@@ -50,15 +48,29 @@ public class ChatService {
     }
 
     /**
+     * Method Description: (공통) 사용자 찾기
+     * Parameter Data: String - 조회할 사용자명
+     * Return Data: String - 조회된 사용자명
+     **/
+    public String getTargetUser(String name) {
+        for (int i = 0; i < userList.size(); i++) {
+            if (name == userList.get(i)) {
+                return userList.get(i);
+            }
+        }
+        return null;
+    }
+
+    /**
      * Method Description: 중복 사용자명 체크
-     * Parameter Data: String(사용자명)
-     * Return Data: Boolean
+     * Parameter Data: UserVO - 조회할 사용자 정보
+     * Return Data: Boolean - 중복 유무
      **/
     public Boolean checkDuplicateName(String name) {
-        if (userMap.get(name) != null) {
+        String targetUser = getTargetUser(name);
+        if(targetUser != null) { // 유저명이 중복될 때
             return false;
         }
-        userMap.put(name, 1);
         return true;
     }
 
@@ -85,6 +97,7 @@ public class ChatService {
      **/
     public Boolean addChatRoom(ChatRoomVO chatRoomVO) {
         roomList.add(chatRoomVO);
+        chatRoomVO.setRoomId((long)(roomList.size()));
         System.out.println("*** 채팅방이 생성되었습니다. ***");
         return true;
     }

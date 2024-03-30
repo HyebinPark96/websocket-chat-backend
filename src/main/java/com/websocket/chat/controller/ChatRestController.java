@@ -35,7 +35,7 @@ public class ChatRestController {
      * Return Data: Boolean Type의 응답 객체
      **/
     @GetMapping("/roomList")
-    public List<ChatRoomVO> selectRoomList () {
+    public List<ChatRoomVO> selectRoomList() {
         return new ArrayList<>(chatService.selectRoomList());
     }
 
@@ -61,9 +61,18 @@ public class ChatRestController {
 
     // 채팅방 목록 OR 채팅방 생성 선택 페이지로 이동하면서 서버에 해당 writer name 전달하기
     @PostMapping("/moveCrossroads")
-    public String moveCrossroads (@RequestBody ChatMsg chatMsg) {
+    public String moveCrossroads(@RequestBody ChatMsg chatMsg) {
         return chatMsg.getWriter(); // writer 리턴
     }
 
+//    // 채팅방 입장
+//    @PostMapping("/chatRoom/{roomId}")
+//    public String enterChatRoom(@PathVariable Long roomId, String name) {
+//        String chatRoomMaster = chatService.getChatRoomMaster(roomId);
+//        model.addAttribute("chatRoomMaster", chatRoomMaster);
+//        model.addAttribute("writer", chatMsg.getWriter());
+//        model.addAttribute("chatRoomName", chatRoomName);
+//        return "chatRoom";
+//    }
 
 }
